@@ -13,6 +13,7 @@
     <header id="header">
       <h1>Todos Hello</h1>
       <input id="new-todo" placeholder="What needs to be done?">
+      <button id="clear-all" >Clear All</button>
     </header>
     <section id="main">
       <ul id="todo-list"></ul>
@@ -73,13 +74,18 @@
       el: '#todoapp',
       initialize: function () {
         this.input = this.$('#new-todo');
+        this.clear = this.$('#clear-all');
         // when new elements are added to the collection render then with addOne
         app.todoList.on('add', this.addOne, this);
         app.todoList.on('reset', this.addAll, this);
         app.todoList.fetch(); // Loads list from local storage
       },
       events: {
-        'keypress #new-todo': 'createTodoOnEnter'
+        'keypress #new-todo': 'createTodoOnEnter',
+        'click #clear-all': 'clearall'
+      },
+      clearall: function(e){        
+        app.todoList.reset({});        
       },
       createTodoOnEnter: function(e){
         if ( e.which !== 13 || !this.input.val().trim() ) { // ENTER_KEY = 13
