@@ -1,17 +1,13 @@
 {
   "name": "backbone-qstart",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "backbone quickstart",
+  "main": "index2.html",
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
-    "lite": "lite-server",
-    "postinstall": "typings install",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "start": "npm run lite",
+    "lite": "lite-server"    
   },
   "dependencies": {    
     "systemjs": "0.19.27",
