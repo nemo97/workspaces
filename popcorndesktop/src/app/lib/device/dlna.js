@@ -1,4 +1,4 @@
-(function (App) {
+/*(function (App) {
     'use strict';
     var Browser = require('nodecast-js');
     var MediaRendererClient = require('upnp-mediarenderer-client');
@@ -151,3 +151,4 @@
 
     App.Device.Dlna = Dlna;
 })(window.App);
+*/

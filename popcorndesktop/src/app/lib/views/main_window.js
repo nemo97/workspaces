@@ -74,10 +74,10 @@
 
             // Application events
             App.vent.on('movies:list', _.bind(this.showMovies, this));
-            App.vent.on('shows:list', _.bind(this.showShows, this));
-            App.vent.on('anime:list', _.bind(this.showAnime, this));
-            App.vent.on('favorites:list', _.bind(this.showFavorites, this));
-            App.vent.on('favorites:render', _.bind(this.renderFavorites, this));
+            //App.vent.on('shows:list', _.bind(this.showShows, this));
+            //App.vent.on('anime:list', _.bind(this.showAnime, this));
+            //App.vent.on('favorites:list', _.bind(this.showFavorites, this));
+            //App.vent.on('favorites:render', _.bind(this.renderFavorites, this));
             App.vent.on('watchlist:list', _.bind(this.showWatchlist, this));
             App.vent.on('shows:update', _.bind(this.updateShows, this));
             App.vent.on('shows:init', _.bind(this.initShows, this));

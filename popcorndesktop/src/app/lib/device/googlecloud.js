@@ -1,4 +1,4 @@
-(function (App) {
+/*(function (App) {
 
     'use strict';
     var collection = App.Device.Collection;
@@ -13,8 +13,9 @@
 	    name: 'Google Cloud'
 	}));
     //}
-	
+
 
 App.Device.Airplay = Airplay;
 
 })(window.App);
+*/

@@ -15,16 +15,20 @@
     "start": "gulp run"
   },
   "single-instance": false,
-  "window": {
+  "window1": {
     "title": "Popcorn Time CE",
     "icon": "src/app/images/icon.png",
-    "toolbar": false,
-    "frame": false,
+    "toolbar": true,
+    "frame": true,
     "min_width": 960,
     "min_height": 520,
     "resizable": true,
     "show": false,
     "position": "center"
+  },
+  "window": {
+    "title": "Popcorn Time CE",
+    "icon": "src/app/images/icon.png"    
   },
   "dependencies": {
     "urijs": "^1.17.0",

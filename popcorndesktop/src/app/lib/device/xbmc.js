@@ -1,4 +1,4 @@
-(function (App) {
+/*(function (App) {
     'use strict';
 
     var browser = require('airplay-xbmc').createBrowser();
@@ -40,3 +40,4 @@
 
     App.Device.AirplayXBMC = AirplayXBMC;
 })(window.App);
+*/

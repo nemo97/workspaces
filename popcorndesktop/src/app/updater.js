@@ -112,6 +112,7 @@
 
     Updater.prototype.download = function (source, output) {
         var defer = Q.defer();
+        /*
         var downloadStream = request(source);
         win.debug('Downloading update... Please allow a few minutes');
         downloadStream.pipe(fs.createWriteStream(output));
@@ -119,6 +120,7 @@
             win.debug('Update downloaded!');
             defer.resolve(output);
         });
+        */
         return defer.promise;
     };
 
@@ -152,7 +154,7 @@
         var defer = Q.defer();
         var pack = new AdmZip(downloadPath);
 		var outputDir = path.dirname(downloadPath);
-		
+
 console.log("downloadPath: "+downloadPath);
 console.log("outputDir: "+outputDir);
 
@@ -200,12 +202,12 @@ console.log("outputDir: "+outputDir);
 
             // Extended: false || undefined
             var installDir = path.dirname(downloadPath);
-			
+
 console.log("installDir: "+installDir);
 
             win.debug('Extracting update files...');
             pack.extractAllToAsync(installDir, true, function (err) {
-			
+
 console.log("logit 3");
 
                 if (err) {
@@ -281,7 +283,7 @@ console.log("outputDir: "+outputDir);
         } else {
             // Extended: false
             var installDir = path.dirname(downloadPath);
-			
+
 console.log("installDir: "+installDir);
 
             pack.extractAllToAsync(installDir, true, function (err) {

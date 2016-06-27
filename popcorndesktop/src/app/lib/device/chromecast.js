@@ -1,4 +1,4 @@
-(function (App) {
+/*(function (App) {
     'use strict';
 
     var chromecast = require('chromecast-js'),
@@ -165,3 +165,4 @@
 
     App.Device.Chromecast = Chromecast;
 })(window.App);
+*/

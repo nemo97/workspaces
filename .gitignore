@@ -53,4 +53,5 @@ Temporary Items
 node_modules/
 build/
 cache/
+nwjs-v*-linux-x64/
 

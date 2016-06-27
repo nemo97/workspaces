@@ -1,4 +1,4 @@
-(function (App) {
+/*(function (App) {
     'use strict';
 
     var path = require('path');
@@ -173,7 +173,7 @@
     };
 
     /* map name back into the object as we use it in match */
-    _.each(players, function (v, k) {
+/*    _.each(players, function (v, k) {
         players[k].name = k;
     });
 
@@ -256,3 +256,4 @@
 
     App.Device.ExtPlayer = ExtPlayer;
 })(window.App);
+*/

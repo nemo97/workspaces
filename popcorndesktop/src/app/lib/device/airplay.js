@@ -1,3 +1,4 @@
+/*
 (function (App) {
     'use strict';
 
@@ -51,3 +52,4 @@
     App.Device.Airplay = Airplay;
 
 })(window.App);
+*/
