@@ -2,9 +2,10 @@
     <div class="fa fa-times close-icon"></div>
     <div class="overlay-content"></div>
     <div class="margintop"></div>
-    <img class="icon-title" src="/src/app/images/popcorn-time-logo.svg">
+    <!--img class="icon-title" src="/src/app/images/popcorn-time-logo.svg"-->
     <div class="content">
-
+        About Me !! Comming ... 
+        <!--
         <div class="title-version">
             <a data-toggle="tooltip" data-placement="top" title=<%= i18n.__("Changelog") %> id='changelog'><%= App.settings.version %> "<%= App.settings.releaseName %>" Beta </a>
             <% if(App.git) { %>
@@ -38,10 +39,10 @@
         <div class="last-line">
             <%= i18n.__("Made with") %> <span style="color:#e74c3c;">&#10084;</span> <%= i18n.__("by a bunch of geeks from All Around The World") %>
         </div>
-
+        -->
     </div>
-    <div class="changelog-overlay">
+    <!--div class="changelog-overlay">
         <div class="title"><%=i18n.__("Changelog")%></div>
         <div class="changelog-text"></div>    
-    </div>
+    </div-->
 </div>

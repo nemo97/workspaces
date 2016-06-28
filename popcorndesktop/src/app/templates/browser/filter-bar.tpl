@@ -3,7 +3,7 @@
     <!--li class="source showShows providerinfo" data-toggle="tooltip" data-placement="top" id="TVApi" title="TV API - None"><%= i18n.__("TV Series") %></li>
     <li class="source showAnime providerinfo" data-toggle="tooltip" data-placement="top" title="Haruhichan"><%= i18n.__("Anime") %></li-->
 </ul>
-<ul id="nav-filters" class="nav nav-hor filters">
+<!--ul id="nav-filters" class="nav nav-hor filters">
     <% if(typeof type !== 'undefined'){ %>
         <li class="dropdown filter types">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -45,18 +45,19 @@
             </ul>
         </li>
     <%}%>
-</ul>
+</ul-->
 <ul class="nav nav-hor right">
-    <li>
+    <!--li>
         <div class="right search">
             <form>
                 <input id="searchbox" type="text" placeholder="<%= i18n.__("YTS.ph Search") %>">
                 <div class="clear fa fa-times"></div>
             </form>
         </div>
-    </li>
+    </li-->
 
     <!-- Randomize -->
+    <!--
     <% if (Settings.activateRandomize) { %>
     <li style="display:block">
     <% } else { %>
@@ -64,16 +65,18 @@
     <% } %>
         <i id="filterbar-random" class="fa fa-random tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Randomize") %>"></i>
     </li>
-
+    -->
     <!-- VPN -->
+    <!--
     <% if(App.VPNClient.isDisabled()) { %>
     <% } else { %>
         <li>
             <i style="color:#CC0000" id="filterbar-vpn-connect" class="fa fa-unlock-alt vpn-connect tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Connect VPN") %>"></i>
         </li>
     <% } %>
-
+    -->
     <!-- Watchlist -->
+    <!--
     <% if (Settings.activateWatchlist) { %>
     <li style="display:block">
     <% } else { %>
@@ -81,13 +84,14 @@
     <% } %>
         <i id="filterbar-watchlist" class="fa fa-inbox watchlist tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Watchlist") %>"></i>
     </li>
-
+    -->
     <!-- Favorites -->
-    <li>
+    <!--li>
         <i id="filterbar-favorites" class="fa fa-heart favorites tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("Favorites") %>"></i>
-    </li>
+    </li-->
 
     <!-- Torrent Collection -->
+    <!--
     <% if (Settings.activateTorrentCollection) { %>
     <li id="torrent_col" style="display:block">
     <% } else { %>
@@ -95,7 +99,7 @@
     <% } %>
         <i id="filterbar-torrent-collection" class="fa fa-folder-open torrent-collection" title="<%= i18n.__("This feature has a built-in kat.cr search, which allows you to stream any movies, series or anime torrents with automatic subtitle support. The casting option integrates features including Chromecast, Airplay and DLNA. This library also provides an Anti-Virus Scanner and a 'History' feature, that keeps track of all your downloaded KAT torrents") %>"></i>
     </li>
-
+    -->
     <!-- About -->
     <li>
         <i id="filterbar-about" class="fa fa-info-circle about tooltipped" data-toggle="tooltip" data-placement="bottom" title="<%= i18n.__("About") %>"></i>
