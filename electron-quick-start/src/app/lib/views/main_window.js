@@ -58,78 +58,7 @@
 
             this.nativeWindow = require('nw.gui').Window.get();
 
-            // Application events
-            App.vent.on('movies:list', _.bind(this.showMovies, this));
-            //App.vent.on('shows:list', _.bind(this.showShows, this));
-            //App.vent.on('anime:list', _.bind(this.showAnime, this));
-            //App.vent.on('favorites:list', _.bind(this.showFavorites, this));
-            //App.vent.on('favorites:render', _.bind(this.renderFavorites, this));
-            App.vent.on('watchlist:list', _.bind(this.showWatchlist, this));
-            App.vent.on('shows:update', _.bind(this.updateShows, this));
-            App.vent.on('shows:init', _.bind(this.initShows, this));
-
-            // Add event to show disclaimer
-            App.vent.on('disclaimer:show', _.bind(this.showDisclaimer, this));
-            App.vent.on('disclaimer:close', _.bind(this.Disclaimer.destroy, this.Disclaimer));
-
-			// Add event to show register
-            App.vent.on('register:show', _.bind(this.showRegister, this));
-            App.vent.on('register:close', _.bind(this.Register.destroy, this.Register));
-
-            // Add event to show about
-            App.vent.on('about:show', _.bind(this.showAbout, this));
-            App.vent.on('about:close', _.bind(this.About.destroy, this.About));
-
-            // Keyboard
-            App.vent.on('keyboard:show', _.bind(this.showKeyboard, this));
-            App.vent.on('keyboard:close', _.bind(this.Keyboard.destroy, this.Keyboard));
-            App.vent.on('keyboard:toggle', _.bind(this.toggleKeyboard, this));
-
-            // Help
-            App.vent.on('help:show', _.bind(this.showHelp, this));
-            App.vent.on('help:close', _.bind(this.Help.destroy, this.Help));
-            App.vent.on('help:toggle', _.bind(this.toggleHelp, this));
-
-            // Issue
-            App.vent.on('issue:new', _.bind(this.showIssue, this));
-            App.vent.on('issue:close', _.bind(this.Issue.destroy, this.Issue));
-
-            // Movies
-            App.vent.on('movie:showDetail', _.bind(this.showMovieDetail, this));
-            App.vent.on('movie:closeDetail', _.bind(this.closeMovieDetail, this.MovieDetail));
-
-            // Torrent collection
-            App.vent.on('torrentCollection:show', _.bind(this.showTorrentCollection, this));
-            App.vent.on('torrentCollection:close', _.bind(this.TorrentCollection.destroy, this.TorrentCollection));
-
-            // Tv Shows
-            App.vent.on('show:showDetail', _.bind(this.showShowDetail, this));
-            App.vent.on('show:closeDetail', _.bind(this.closeShowDetail, this.MovieDetail));
-
-            // Settings events
-            App.vent.on('settings:show', _.bind(this.showSettings, this));
-            App.vent.on('settings:close', _.bind(this.Settings.destroy, this.Settings));
-
-            App.vent.on('notification:show', _.bind(this.showNotification, this));
-            App.vent.on('notification:close', _.bind(this.closeNotification, this));
-
-            App.vent.on('system:openFileSelector', _.bind(this.showFileSelector, this));
-            App.vent.on('system:closeFileSelector', _.bind(this.FileSelector.destroy, this.FileSelector));
-
-            App.vent.on('system:traktAuthenticated', _.bind(this.traktAuthenticated, this));
-            App.vent.on('system:tvstAuthenticated', _.bind(this.tvstAuthenticated, this));
-
-            // Stream events
-            App.vent.on('stream:started', _.bind(this.streamStarted, this));
-            App.vent.on('stream:ready', _.bind(this.streamReady, this));
-            App.vent.on('stream:local', _.bind(this.showPlayer, this));
-            App.vent.on('player:close', _.bind(this.showViews, this));
-            App.vent.on('player:close', _.bind(this.Player.destroy, this.Player));
-
-            App.vent.on('vpn:connect', _.bind(this.connectVpn, this));
-            App.vent.on('restartPopcornTime', _.bind(this.restartPopcornTime, this));
-
-            App.vent.on('updatePostersSizeStylesheet', _.bind(this.updatePostersSizeStylesheet, this));
+           
         },
 
         showSubtitles: function (model) {
