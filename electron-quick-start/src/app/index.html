@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/dist/css/bootstrap.css">
+	  <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/dist/css/bootstrap-theme.css">
+	  <link rel="stylesheet" type="text/css" href="./vendor/font-awesome/css/font-awesome.min.css">
+  </head>
+  <body>    
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chromium <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>
+ <section id="todoapp">
+    <header id="header">
+      <h1>Todos Hello</h1>
+      <input id="new-todo" placeholder="What needs to be done?">
+      <button id="clear-all" >Clear All</button>
+    </header>
+    <section id="main">
+      <ul id="todo-list"></ul>
+    </section>
+  </section>
+    
+
+    <div class="main-window-region"></div>
+    <script type="text/template" id="item-template">
+      <div class="view">
+        <input class="toggle" type="checkbox">
+        <label><%- title %></label>
+      </div>
+    </script>
+    <!-- Insert this line above script imports  -->
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <!-- 3rd party Dependencies -->
+    <script src="./vendor/jquery/dist/jquery.js"></script>
+    <script src="./vendor/underscore/underscore.js"></script>
+    <script src="./vendor/backbone/backbone.js"></script>
+    <script src="vendor/backbone.wreqr/lib/backbone.wreqr.js"></script>
+    <script src="vendor/backbone.babysitter/lib/backbone.babysitter.js"></script>
+    <script src="vendor/marionette/lib/backbone.marionette.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="vendor/mousetrap/mousetrap.min.js"></script>
+    <script src="vendor/mousetrap/plugins/pause/mousetrap-pause.min.js"></script>
+    <script src="vendor/mousetrap/plugins/global-bind/mousetrap-global-bind.min.js"></script>
+    <script src="vendor/video.js/dist/video-js/video.dev.js"></script>
+
+    
+
+    <!-- Other dependencies -->
+    <script src="vendor/videojshooks.js"></script>
+    <script src="vendor/videojsplugins.js"></script>
+    <script src="lib/jquery.plugins.js"></script>
+    <script src="vendor/videojs-youtube/src/youtube.js"></script>
+    <script src="vendor/backbone.localStorage-min.js"></script>
+
+    <!--script src="app.js"></script>
+    <script src="bootstrap.js"></script-->
+    <script src="backboneapp.js"></script>
+
+    <!-- Insert this line after script imports -->
+    <script>if (window.module) module = window.module;</script>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+    <script type="text/javascript">
+
+    //--------------
+    // Initializers
+    //--------------
+
+    App.appView = new App.AppView();
+
+  </script>
+</html>
