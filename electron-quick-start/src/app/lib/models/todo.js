@@ -3,10 +3,11 @@
 
     var Todo = Backbone.Model.extend({
         defaults: {
-          title: '',
+          title: 'test',
           completed: false
         }
       });
 
     App.Model.Todo = Todo;
+
 })(window.App);
