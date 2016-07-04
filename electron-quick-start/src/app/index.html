@@ -17,24 +17,8 @@
 
     <div class="main-window-region"></div>
   
-    <script type="text/template" id="item-template">
-      <div class="view">
-        <input class="toggle" type="checkbox">
-        <label><%- title %></label>
-      </div>
-    </script>
-    <script type="text/template" id="main-window-tpl">
-      <section id="todoapp">
-          <header id="header">
-            <h1>Todos Hello</h1>
-            <input id="new-todo" class="new-todo" placeholder="What needs to be done?">
-            <button id="clear-all" >Clear All</button>
-          </header>
-          <section id="main">
-            <ul id="todo-list"></ul>
-          </section>
-        </section>
-    </script>
+    <script type="text/x-template" id="item-template" src="templates/item-template-tpl.tpl"></script>
+    <script type="text/x-template" id="main-window-tpl" src="templates/main-window-tpl.tpl"></script>
     <!-- Insert this line above script imports  -->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
@@ -62,10 +46,13 @@
     <!--
     <script src="backboneapp.js"></script>
     -->
-    <script src="marionetteapp.js"></script>
+
+    <script src="app.js"></script>
     
     <script src="lib/models/todo.js"></script>
     <script src="lib/models/todo-collection.js"></script>
+    
+    
 
     <!--script src="lib/views/TodoView.js"></script>
     <script src="lib/views/AppView.js"></script-->
