@@ -3,8 +3,8 @@ import { AppComponent } from './app.component';
 import { CourseComponent } from './course.component';
 
 export const routes: RouterConfig = [    
-    {path:'',redirectTo:'/course',pathMatch:'full'},
-    {path:'course',component:CourseComponent}
+    {path:'',redirectTo:'/courses',pathMatch:'full'},
+    {path:'courses',component:CourseComponent}
 ];
 
 export const APP_ROUTER_PROVIDERS = [

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { CourseService } from './courses.service'
 
 @Component({
-  selector: 'course',
+  selector: 'course-list',
   template: `
               <div>{{title}}</div>              
               <ul>
@@ -12,9 +12,8 @@ import { CourseService } from './courses.service'
              `,
   providers: [CourseService]             
 })
-export class CourseComponent {
+export class CourseListComponent {
   title = " Courses ";
-  //cources = ["cources 1","cources 2","cources 3"];
   courses ;
   constructor(courseService :CourseService){
     this.courses = courseService.getCourse(); 
