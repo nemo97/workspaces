@@ -1,6 +1,6 @@
 import { RouterConfig,provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CourseComponent } from './courses.component';
+import { CourseComponent } from './course.component';
 
 export const routes: RouterConfig = [    
     {path:'',redirectTo:'/course',pathMatch:'full'},
