@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import { CourseComponent } from './courses.component';
 @Component({
   selector: 'my-app',
-  template: '<h1>Hello World!</h1><course></course>',
-  directives: [CourseComponent]
+  template: `
+  <router-outlet></router-outlet>       
+  `,
+  directives: [ROUTER_DIRECTIVES]
 })
 export class AppComponent { }
