@@ -7,9 +7,9 @@ import { CourseComponent } from './course.component';
   <div> Hello World Application </div>
   <div>&nbsp;</div>
   <nav>
-    <a [routerLink]="['/dashboard']>Dashboard</a> |
-    <a [routerLink]="['/courses']>Courses</a> |
-    <a [routerLink]="['/course/:id']>Course</a> | 
+    <a [routerLink]="['/dashboard']">Dashboard</a> |
+    <a [routerLink]="['/courselist']">Courses</a> |
+    <a [routerLink]="['/course']">Course</a> | 
     <a>About!</a> 
   </nav>
   <div>&nbsp;</div>
