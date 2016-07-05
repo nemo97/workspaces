@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 
 import { CourseService } from './course.service'
+import { CourseModel } from './course.model'
 
 @Component({
-  selector: 'course',
+  selector: 'course-details',
   template: `
-              <div>{{title}}</div>              
-              <ul>
-                <li *ngFor="let c of courses">{{ c }}</li>
-              </ul>
+              <div *ngIf="inputCourse">
+                <div>{{title}}</div>              
+                <div>Id : {{inputCourse.id}} Course Name : {{inputCourse.courseName}} </div>
+               </div> 
              `,
   providers: [CourseService]             
 })
 export class CourseComponent {
   title = " Courses Details ";  
-  courses ;
-  constructor(courseService :CourseService){
-    this.courses = courseService.getCourseList(); 
+  
+  @Input()
+  inputCourse : CourseModel;
+
+  constructor(public courseService :CourseService){
+     
   }
 }
