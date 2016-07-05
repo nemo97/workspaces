@@ -1,6 +1,6 @@
  var 
     // browser window object
-    win = require('electron').remote.BrowserWindow ,
+    win = remote.BrowserWindow ,
 
     // os object
     os = require('os'),
@@ -33,7 +33,8 @@ _.extend(App, {
     Localization: {}
 });
 // Temporary ..
-App.dataPath = "/home/subhas/workspaces/tmpdata";
+App.dataPath = app.getPath('userData');
+
 // Special Debug Console Calls!
 win.log = console.log.bind(console);
 
@@ -96,7 +97,8 @@ if (gui.App.fullArgv.indexOf('--reset') !== -1) {
 */
 
 
-
+// set database
+App.db = Database;
 
 App.addRegions({
     Window: '.main-window-region'
