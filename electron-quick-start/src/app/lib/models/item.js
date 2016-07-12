@@ -1,13 +1,13 @@
 (function (App) {
     'use strict';
 
-    var Todo = Backbone.Model.extend({
+    var Item = Backbone.Model.extend({
         defaults: {
           title: 'test',
           completed: false
         }
       });
 
-    App.Model.Todo = Todo;
+    App.Model.Item = Item;
 
 })(window.App);

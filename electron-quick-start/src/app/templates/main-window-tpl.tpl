@@ -1,10 +1,10 @@
 <section id="todoapp">
     <header id="header">
-        <h1>Todos Hello</h1>
-        <input id="new-todo" class="new-todo" placeholder="What needs to be done?">
-        <button id="clear-all" >Clear All</button>
+        <h1>Home</h1>        
     </header>
     <section id="main">
-        <ul id="todo-list"></ul>
+        <div><a id="freshstart">Start</a></div>
+        <div><a id="workprogress">Continue from where you left off</a></div>
+        <div id="container"></div>        
     </section>
 </section>
