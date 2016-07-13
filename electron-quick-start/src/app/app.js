@@ -21,18 +21,8 @@
 
     Q = require('q');
 
-// Global App skeleton for backbone
-var App = new Backbone.Marionette.Application();
-_.extend(App, {
-    Controller: {},
-    View: {},
-    Model: {},
-    Page: {},
-    Scrapers: {},
-    Providers: {},
-    Localization: {}
-});
-// Temporary ..
+
+// for electron  ~/.{app name}
 App.dataPath = app.getPath('userData');
 
 // Special Debug Console Calls!
