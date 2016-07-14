@@ -18,9 +18,22 @@ _.extend(App, {
         title: 'Test Apps',
         platform: process.platform,        
         basepath : '/home/subhas/dev_tools/VideoRepo',
-        chapters : ['chapter01','chapter02','chapter03']
-    };
+        chapters : ['chapter01','chapter02','chapter03'],
 
+        getContentPath : function(chapter) {
+            var isValid = false;
+            for(var i=0;i<this.chapters.length;i++){
+                if(this.chapters[i] == chapter){
+                    isValid = true;
+                    break;
+                }
+            }
+            if(isValid){
+                return this.basepath +"/"+ chapter;
+            }
+            return '';
+        }  
+    };
 
     App.Config = Config;
 })(window.App);

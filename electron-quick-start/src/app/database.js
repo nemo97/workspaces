@@ -18,8 +18,8 @@ console.debug('Database path: ' + data_path);
 
 process.env.TZ = 'America/New_York'; // set same api tz
 
-db.playgroud = new Datastore({
-    filename: path.join(data_path, 'data/playgroud.db'),
+db.progress = new Datastore({
+    filename: path.join(data_path, 'data/progress.db'),
     autoload: true
 });
 db.settings = new Datastore({
@@ -33,14 +33,14 @@ function promisifyDatastore(datastore) {
     datastore.remove = Q.denodeify(datastore.remove, datastore);
 }
 
-promisifyDatastore(db.playgroud);
+promisifyDatastore(db.progress);
 promisifyDatastore(db.settings);
 
 
 // Create unique indexes for the various id's for shows and movies
 
-db.playgroud.ensureIndex({
-    fieldName: 'p_id',
+db.progress.ensureIndex({
+    fieldName: 'key',
     unique: true
 });
 
@@ -72,20 +72,41 @@ var promisifyDb = function (obj) {
 };
 
 var Database = {
-    addMovie: function (data) {
-        return db.movies.insert(data);
-    },
-
-    deleteMovie: function (imdb_id) {
-        return db.movies.remove({
-            imdb_id: imdb_id
-        });
-    },
-
-    getMovie: function (imdb_id) {
-        return promisifyDb(db.movies.findOne({
-            imdb_id: imdb_id
+    
+    getProgrssRecord: function (data) {
+        return promisifyDb(db.progress.findOne({
+            key: data.key
         }));
+    },
+
+    getProgress: function () {
+        return promisifyDb(db.progress.find({}));
+    },    
+
+    // format: {key: key_name, value: settings_value}
+    writeProgress: function (data) {
+        return Database.getProgress({
+                key: data.key
+            })
+            .then(function (result) {
+                if (result) {
+                    return db.progress.update({
+                        'key': data.key
+                    }, {
+                        $set: {
+                            'value': data.value
+                        }
+                    }, {});
+                } else {
+                    return db.progress.insert(data);
+                }
+            });
+    },
+
+    resetProgress: function () {
+        return db.progress.remove({}, {
+            multi: true
+        });
     },
 
     getSetting: function (data) {
@@ -126,7 +147,7 @@ var Database = {
 
     deleteDatabases: function () {
 
-        fs.unlinkSync(path.join(data_path, 'data/playgroud.db'));       
+        fs.unlinkSync(path.join(data_path, 'data/progress.db'));       
 
         fs.unlinkSync(path.join(data_path, 'data/settings.db'));
 
