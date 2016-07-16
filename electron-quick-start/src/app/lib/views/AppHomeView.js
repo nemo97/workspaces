@@ -9,92 +9,70 @@
         regions: {
             ContentRegion : '#main'         
         },
-        initialize : function(){ 
-            
-            // application event listeners 
-            App.vent.on('show:chapter', _.bind(this.showChapter, this));    
+        initialize : function(){
+            // application event listeners
+            App.vent.on('show:home', _.bind(this.showHome, this)); 
+            App.vent.on('show:chapter', _.bind(this.showChapter, this));
+            //this.ContentRegion.show(new App.View.HomeView());    
+        },
+        onShow: function () {
+            App.vent.trigger('show:home');
         },
         ui: {
           freshstart: '#freshstart',
-          workprogress: '#workprogress'          
-       },
-        // triggers: {
-        //   'keypress @ui.todo': 'add:todo:item'
-        // },
+          workprogress: '#workprogress',
+          homebtn: '#homebtn',
+          nextbtn: '#nextbtn'          
+        },
+        
         events:{
             'click @ui.freshstart' : 'freshStart',
-            'click @ui.workprogress' : 'workprogress'            
+            'click @ui.workprogress' : 'workprogress',
+            'click @ui.homebtn' : 'goHome',
+            'click @ui.nextbtn' : 'goNext'            
+        },
+        goHome : function(){
+             App.vent.trigger('show:home');
+        },
+        goNext : function(){
+
         },        
-        freshStart: function(){
-            
-            var firstChapter = App.Config.chapters[0];
-            var repoPath = App.Config.getContentPath(firstChapter.name);
-            /*
-            App.Utils.getFiles(repoPath).then(function (fileNames){                
-                App.Model.itemList = new App.Model.ItemList();
-                for(var i=0;i<fileNames.length;i++){
-                    var item = new App.Model.Item({title:"test "+i});
-                    App.Model.itemList.add(item);
-                }
-                //alert("Here "+fileNames+" .."+fileNames.length);                
-            });
-            */
-            /*
-            var fileNames = App.Utils.getNormalFiles(repoPath);
-            App.Model.itemList = new App.Model.ItemList();
-            for(file in fileNames){
-                var item = new App.Model.Item({title:file});
-                App.Model.itemList.add(item);
-                App.Model.itemList.add(item);
-            }
-            */
-            /*
-            App.Model.itemList = new App.Model.ItemList();
-            var fs = require('fs'); 
-            fs.readdir(repoPath, function(err,files){
-                    if (err){
-                        console.log("Error "+err);                        
-                    }
-                    else{
-                        files.forEach( function (file,idx){
-                            console.log("file name "+file);
-                            var item = new App.Model.Item({title:"fileName "+file});
-                            App.Model.itemList.add(item);
-                        });
-                        App.vent.trigger('show:chapter');    
-                       //App.View.AppHomeView.showContentRegion(new App.View.ItemListView({collection : App.Model.itemList}));                         
-                    }                    
-            });
-            */
-            //this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));
+        freshStart: function(){            
+             var firstChapter = App.Config.chapters[0];
+             this.loadChapterContent(firstChapter);
 
-             App.Model.itemList = new App.Model.ItemList();
-             App.Utils.getFiles(repoPath).then(function (fileNames){
-                
-                fileNames.forEach( function (file,idx){
-                        console.log("file name "+file);
-                        var item = new App.Model.Item({title:"fileName "+file});
-                        App.Model.itemList.add(item);
-                  });
-                
-                App.vent.trigger('show:chapter');
-
-                //alert("Here "+fileNames+" .."+fileNames.length);
-                //this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));                
-            }); 
-            /*            
-            for(var i=0;i<10;i++){
-                var item = new App.Model.Item({title:"test" });
-                App.Model.itemList.add(item);
-            }*/
-               
         },
         workprogress: function(){
             
         },
+        showHome : function(e) {
+            this.ContentRegion.show(new App.View.HomeView());
+        },
         showChapter : function(e) {
 
             this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));
+        },
+
+        loadChapterContent : function(chapterObj){
+
+             if(!chapterObj){
+                 console.log("chapter param is blank "+chapterName);                 
+             }
+             else{
+                var repoPath = App.Config.getContentPath(chapterObj.name);
+                
+                App.Model.itemList = new App.Model.ItemList();
+                App.Utils.getFiles(repoPath).then(function (fileNames){
+                    
+                    _.each(fileNames, function (file){
+                            console.log("file name "+file);
+                            var item = new App.Model.Item({title:"fileName "+file});
+                            App.Model.itemList.add(item);
+                    });
+                    
+                    App.vent.trigger('show:chapter');
+                });
+             }
         }
       
     });

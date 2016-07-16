@@ -12,36 +12,13 @@
                     if (err){
                         deferred.reject(new Error(err));
                     }
-                    else{                        
-                        /*
-                        files.forEach( function (file,idx){
-                            console.log("file name "+file);
-                        });
-                        */
+                    else{
+                        
                         deferred.resolve(files);  
                     }                    
                 });
                 return deferred.promise;
-            },
-        
-        getNormalFiles : function(path) {
-                    
-                return fs.readdir(path, function(err,files){
-                    if (err){
-                        console.log("Error "+err);
-
-                        return null;
-                    }
-                    else{
-                        files.forEach( function (file,idx){
-                            console.log("file name "+file);
-                        });
-
-                        return files;
-                    }                    
-                });                
-            }            
-
+        }
     }
     App.Utils = Utils;
 
