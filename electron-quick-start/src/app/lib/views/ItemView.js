@@ -1,7 +1,7 @@
 (function (App) {
     'use strict';
 
-    // renders individual todo items list (li)
+    // renders individual  (li)
     var ItemView = Backbone.Marionette.ItemView.extend({
       tagName: 'li',    
       template:'#item-template'

@@ -40,19 +40,6 @@
             "port": 5858,
             "sourceMaps": false,
             "outDir": null
-        },
-        {
-            "name": "Debug",
-            "type": "chrome",
-            "request": "launch",
-            "runtimeExecutable": "${workspaceRoot}/node_modules/electron-prebuilt/dist/electron",
-            "runtimeArgs": [
-                "${workspaceRoot}",
-                "--enable-logging",
-                "--remote-debugging-port=9222"
-            ],
-            "sourceMaps": false
         }
     ]
 }
-

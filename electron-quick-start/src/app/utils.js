@@ -23,16 +23,21 @@
                 });
                 return deferred.promise;
             },
+        
         getNormalFiles : function(path) {
-                
-                fs.readdir(path, function(err,files){
+                    
+                return fs.readdir(path, function(err,files){
                     if (err){
                         console.log("Error "+err);
+
+                        return null;
                     }
                     else{
                         files.forEach( function (file,idx){
                             console.log("file name "+file);
                         });
+
+                        return files;
                     }                    
                 });                
             }            
