@@ -2,7 +2,8 @@
     'use strict';
     
     var HomeView = Backbone.Marionette.ItemView.extend({
-      tagName: 'div',          
+      tagName: 'div',
+      className : 'homeview',          
       template:'#home-template-tpl'
     });
 

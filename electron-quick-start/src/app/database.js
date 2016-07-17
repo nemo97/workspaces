@@ -85,7 +85,7 @@ var Database = {
 
     // format: {key: key_name, value: settings_value}
     writeProgress: function (data) {
-        return Database.getProgress({
+        return Database.getProgrssRecord({
                 key: data.key
             })
             .then(function (result) {
