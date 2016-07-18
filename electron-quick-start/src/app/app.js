@@ -1,3 +1,4 @@
+const {BrowserWindow} = require('electron').remote
  var 
     // browser window object
     win = remote.BrowserWindow ,
@@ -20,6 +21,8 @@
     //moment = require('moment'),
 
     Q = require('q');
+
+    
 
 
 // for electron  ~/.{app name}
@@ -130,8 +133,6 @@ var initTemplates = function () {
 
 var initApp = function () {
     var mainWindow = new App.View.AppHomeView();
-    //win.show();
-
     try {
         App.Window.show(mainWindow);
     } catch (e) {

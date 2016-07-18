@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="./css/mystyle.css">
     <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/dist/css/bootstrap.css">
 	  <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/dist/css/bootstrap-theme.css">
 	  <link rel="stylesheet" type="text/css" href="./vendor/font-awesome/css/font-awesome.min.css">
@@ -18,8 +19,9 @@
     <div class="main-window-region"></div>
   
     <script type="text/x-template" id="home-template-tpl" src="templates/home-template-tpl.tpl"></script>
-    <script type="text/x-template" id="item-template" src="templates/item-template-tpl.tpl"></script>
+    <script type="text/x-template" id="item-template-tpl" src="templates/item-template-tpl.tpl"></script>
     <script type="text/x-template" id="main-window-tpl" src="templates/main-window-tpl.tpl"></script>
+    <script type="text/x-template" id="header-menu-tpl" src="templates/header-menu-tpl.tpl"></script>
     <!-- Insert this line above script imports  -->
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
@@ -59,7 +61,7 @@
 
     <!--script src="lib/views/TodoView.js"></script>
     <script src="lib/views/AppView.js"></script-->
-
+    <script src="lib/views/HeaderMenuView.js"></script>
     <script src="lib/views/HomeView.js"></script>
     <script src="lib/views/ItemView.js"></script>
     <script src="lib/views/ItemListView.js"></script>

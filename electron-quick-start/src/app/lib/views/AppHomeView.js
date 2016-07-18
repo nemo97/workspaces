@@ -8,7 +8,8 @@
         id: 'main-window',
         className : 'apphome',
         regions: {
-            ContentRegion : '#main'         
+            ContentRegion : '#main',
+            Header : '#header'         
         },
         initialize : function(){
             
@@ -52,7 +53,8 @@
             App.vent.on('close:chapter', _.bind(this.closeChapter, this));
             App.vent.on('viewstack:pop', _.bind(this.dummy, this));
             App.vent.on('viewstack:push', _.bind(this.dummy, this));
-            App.vent.on('go:next', _.bind(this.goNext, this));                
+            App.vent.on('go:next', _.bind(this.goNext, this));
+            App.vent.on('show:header', _.bind(this.showHeader, this));                
         },
         dummy : function(){
 
@@ -74,9 +76,13 @@
             'click @ui.nextbtn' : 'goNext'            
         },
         goHome : function(){
+             this.Header.destroy();
              App.vent.trigger('close:chapter');
              App.vent.trigger('show:home');
         },
+        showHeader : function(){
+             this.Header.show(new App.View.HeaderMenuView());
+        },        
         goNext : function(){
             var that = this;
             App.db.getProgrssRecord({"key":'lastaccess'}).then(function(result){
@@ -110,6 +116,8 @@
              var firstChapter = App.Config.chapters[0];
              this.loadChapterContent(firstChapter);             
              App.vent.trigger('show:chapter');
+             //this.Header.show(new App.View.HeaderMenuView());
+             App.vent.trigger('show:header');
         },
         workprogress: function(){
             var that = this;
@@ -131,6 +139,7 @@
                 }                
                 that.loadChapterContent(nextChapter);
                 App.vent.trigger('show:chapter'); 
+                App.vent.trigger('show:header');
             });
 
         },
