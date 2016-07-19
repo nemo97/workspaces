@@ -1,3 +1,6 @@
+<div class="form-group">
+    &nbsp;
+</div>
 <div>
     <nav>
         <a id="homebtn" class="btn btn-primary btn-lg active">Home</a> |        

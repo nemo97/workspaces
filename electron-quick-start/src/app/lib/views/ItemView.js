@@ -3,8 +3,8 @@
 
     // renders individual  (li)
     var ItemView = Backbone.Marionette.ItemView.extend({
-      tagName: 'li',
-      className : 'itemView',    
+      tagName: 'div',
+      className : 'itemView col-md-12',    
       template:'#item-template-tpl',
 
       initialize: function(){        

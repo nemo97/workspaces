@@ -2,6 +2,7 @@
     'use strict';
 
     var _this;
+    var workingChapter;
     var AppHomeView = Backbone.Marionette.LayoutView.extend({
         template: '#main-window-tpl',
 
@@ -11,6 +12,7 @@
             ContentRegion : '#main',
             Header : '#header'         
         },
+         
         initialize : function(){
             
             _this = this;
@@ -147,8 +149,9 @@
             this.ContentRegion.show(new App.View.HomeView());
         },
         showChapter : function(e) {
-
-            this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));
+            var item = new App.Model.Chapter(workingChapter);
+            //this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));
+            this.ContentRegion.show(new App.View.ItemListView({model:item , collection : App.Model.itemList}));
         },
         closeChapter : function(e) {
 
@@ -163,15 +166,27 @@
                 var repoPath = App.Config.getContentPath(chapterObj.name);
                 
                 App.Model.itemList.reset();
+                /*
                 App.Utils.getFiles(repoPath).then(function (fileNames){
                     
-                    _.each(fileNames, function (file){
+                    _.each(fileNames, function (file,idx){
                             console.log("file name "+file);
-                            var item = new App.Model.Item({title:"fileName "+file});
+                            var item = new App.Model.Item({title:"fileName "+file,index:(idx+1)});
                             App.Model.itemList.add(item);
                     });
-                    App.db.writeProgress({"key":'lastaccess','value':chapterObj });                    
+                    App.db.writeProgress({"key":'lastaccess','value':chapterObj });
+                    workingChapter = chapterObj;                    
                 });
+                */            
+                
+                _.each(chapterObj.items, function (item){
+                        console.log("file name "+item.filename);
+                        var item = new App.Model.Item({title:item.description,index:item.index,filename:item.filename});
+                        App.Model.itemList.add(item);
+                });
+                App.db.writeProgress({"key":'lastaccess','value':chapterObj });
+                workingChapter = chapterObj;                    
+            
              }
         }
       

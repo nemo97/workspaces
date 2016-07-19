@@ -1,7 +1,9 @@
-<div id="homeapp" class="container">
+<div id="homeapp">
     <header id="header">                
-    </header>
-    <div style="height:40px;"></div>
-    <section id="main">        
+    </header>    
+    <section id="main" class="main">        
     </section>
+    <footer id="footer">
+        Language :<nav> <a><%= i18n.__('Bengali','bn') %>  </a> | <a><%= 'English' %>  </a> </nav>                
+    </footer>
 </div>

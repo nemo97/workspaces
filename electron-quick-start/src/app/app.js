@@ -88,7 +88,11 @@ if (gui.App.fullArgv.indexOf('--reset') !== -1) {
 
 }
 */
-
+i18n.configure({
+    locales: ['en', 'bn'],
+    register: global,
+    directory: __dirname + '/language'
+});
 
 // set database
 App.db = Database;
@@ -134,6 +138,7 @@ var initTemplates = function () {
 var initApp = function () {
     var mainWindow = new App.View.AppHomeView();
     try {
+        i18n.setLocale('bn');
         App.Window.show(mainWindow);
     } catch (e) {
         console.error('Couldn\'t start app: ', e, e.stack);
