@@ -11,5 +11,5 @@
     <div class="form-group">
             &nbsp;
     </div>
-    <div id="items" class="row"></div>   
+    <div id="items"></div>   
 </div>

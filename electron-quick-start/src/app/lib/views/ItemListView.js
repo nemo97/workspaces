@@ -20,9 +20,16 @@
     template:'#chapter-template-tpl',
     childView: App.View.ItemView,
     className : 'itemListView',
+    modelEvents: {
+      "change": "modelChanged"
+    },
     childViewContainer: function(){
       return "#items"
-    } 
+    }, 
+    modelChanged: function() {
+      console.log("model changed ");
+      this.render();
+    }
   });
 
   App.View.ItemListView = ItemListView;

@@ -2,7 +2,7 @@
     'use strict';
 
     var _this;
-    var workingChapter;
+    
     var AppHomeView = Backbone.Marionette.LayoutView.extend({
         template: '#main-window-tpl',
 
@@ -113,7 +113,8 @@
                 that.loadChapterContent(nextChapter); 
             });    
         },        
-        freshStart: function(){            
+        freshStart: function(){ 
+             App.Model.chapter = new App.Model.Chapter();           
              App.Model.itemList = new App.Model.ItemList();
              var firstChapter = App.Config.chapters[0];
              this.loadChapterContent(firstChapter);             
@@ -123,7 +124,9 @@
         },
         workprogress: function(){
             var that = this;
+            App.Model.chapter = new App.Model.Chapter();
             App.Model.itemList = new App.Model.ItemList();
+
             App.db.getProgrssRecord({"key":'lastaccess'}).then(function(result){
 
                 var lastchapter = result.value;                
@@ -149,9 +152,10 @@
             this.ContentRegion.show(new App.View.HomeView());
         },
         showChapter : function(e) {
-            var item = new App.Model.Chapter(workingChapter);
+            //this.ContentRegion.destroy();
+            //var item = new App.Model.Chapter(App.workingChapter);
             //this.ContentRegion.show(new App.View.ItemListView({collection : App.Model.itemList}));
-            this.ContentRegion.show(new App.View.ItemListView({model:item , collection : App.Model.itemList}));
+            this.ContentRegion.show(new App.View.ItemListView({model:App.Model.chapter , collection : App.Model.itemList}));
         },
         closeChapter : function(e) {
 
@@ -185,7 +189,8 @@
                         App.Model.itemList.add(item);
                 });
                 App.db.writeProgress({"key":'lastaccess','value':chapterObj });
-                workingChapter = chapterObj;                    
+                App.Model.chapter.set({title : chapterObj.name});
+                App.Model.chapter.set({ 'description' : chapterObj.description});                    
             
              }
         }
