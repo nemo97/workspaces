@@ -18,7 +18,7 @@ _.extend(App, {
     var Config = {
         title: 'Test Apps',
         platform: process.platform,        
-        basepath : '/home/subhas/dev_tools/VideoRepo',
+        basepath : 'VideoRepo',
         chapters : [
                     {
                      name:'chapter01',
@@ -65,10 +65,29 @@ _.extend(App, {
                 if(!path){
                     path = chapter;
                 }
-                return this.basepath +"/"+ path;
+                return `${__dirname}`+"/" + this.basepath +"/"+ path;
             }
             return '';
-        }  
+        },
+        getFilePath : function(chapterId,fileId) {
+            
+            var path = '';
+            _.each(this.chapters,function(chapter){
+                 if(chapter.seq && chapter.seq == chapterId){                    
+                    _.each(chapter.items,function(item){
+                        if(item.index==fileId){
+                            path = chapter.path+"/"+item.filename ;                                                   
+                        }
+                    });
+                }
+            });
+            
+            
+            if(path){                
+                return `${__dirname}`+"/" + this.basepath +"/"+ path;
+            }
+            return '';
+        }    
     };
 
     App.Config = Config;

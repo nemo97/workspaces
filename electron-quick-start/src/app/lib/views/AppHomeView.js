@@ -10,7 +10,8 @@
         className : 'apphome',
         regions: {
             ContentRegion : '#main',
-            Header : '#header'         
+            Header : '#header',
+            Player: '#player'         
         },
          
         initialize : function(){
@@ -56,7 +57,54 @@
             App.vent.on('viewstack:pop', _.bind(this.dummy, this));
             App.vent.on('viewstack:push', _.bind(this.dummy, this));
             App.vent.on('go:next', _.bind(this.goNext, this));
-            App.vent.on('show:header', _.bind(this.showHeader, this));                
+            App.vent.on('show:header', _.bind(this.showHeader, this)); 
+
+            App.vent.on('stream:local', _.bind(this.showPlayer, this));
+            App.vent.on('player:close', _.bind(this.showViews, this));
+            App.vent.on('player:close', _.bind(this.Player.destroy, this.Player));
+            App.vent.on('test:dialog', _.bind(this.testPlayer, this));               
+        },
+        testPlayer: function () {
+             console.log("Testing here testPlayer");
+             var view = new App.View.TestView();
+             view.render();
+
+            var $modalEl = $("#player");
+            $modalEl.html(view.el);
+            $modalEl.modal();
+
+        },
+        showPlayer: function () {
+             //var streamModel = new App.Model.Player({src:''});
+
+             this.Player.show(new App.View.PlayerView({
+                 model: App.Model.streamModel
+             }));
+            // this.Content.$el.hide();
+            // if (this.MovieDetail.$el !== undefined) {
+            //     this.MovieDetail.$el.hide();
+            // }
+            console.log("Testing here");
+        },
+
+        showViews: function (streamModel) {
+            this.ContentRegion.$el.show();
+            // try {
+            //     this.MovieDetail.$el.show();
+
+            //     var detailWin = this.MovieDetail.el.firstElementChild.classList[0];
+
+            //     if (detailWin === 'shows-container-contain') {
+            //         App.vent.trigger('shortcuts:shows');
+            //         App.ViewStack = ['main-browser', 'shows-container-contain', 'app-overlay'];
+            //     } else {
+            //         App.vent.trigger('shortcuts:movies');
+            //         App.ViewStack = ['main-browser', 'movie-detail', 'app-overlay'];
+            //     }
+            // } catch (err) {
+            //     App.ViewStack = ['main-browser', 'app-overlay'];
+            // }
+            // $(window).trigger('resize');
         },
         dummy : function(){
 
@@ -185,7 +233,7 @@
                 
                 _.each(chapterObj.items, function (item){
                         console.log("file name "+item.filename);
-                        var item = new App.Model.Item({title:item.description,index:item.index,filename:item.filename});
+                        var item = new App.Model.Item({title:item.description,index:item.index,filename:item.filename,chapterId:chapterObj.seq});
                         App.Model.itemList.add(item);
                 });
                 App.db.writeProgress({"key":'lastaccess','value':chapterObj });
