@@ -33,7 +33,7 @@ _.extend(App, {
                     {
                         name:'chapter02',
                         seq:2,
-                        description: "Test chapter 3",
+                        description: "Test chapter 2",
                         path:'chapter02',
                         items: [
                          { index:1,description:'Greetings',filename:'Greetings.mp4'},
