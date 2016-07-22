@@ -10,8 +10,8 @@
         className : 'apphome',
         regions: {
             ContentRegion : '#main',
-            Header : '#header',
-            Player: '#player'         
+            Header : '#header'
+                     
         },
          
         initialize : function(){
@@ -60,9 +60,9 @@
             App.vent.on('show:header', _.bind(this.showHeader, this)); 
 
             App.vent.on('stream:local', _.bind(this.showPlayer, this));
-            App.vent.on('player:close', _.bind(this.showViews, this));
-            App.vent.on('player:close', _.bind(this.Player.destroy, this.Player));
-            App.vent.on('test:dialog', _.bind(this.testPlayer, this));               
+            //App.vent.on('player:close', _.bind(this.showViews, this));
+            //App.vent.on('player:close', _.bind(this.Player.destroy, this.Player));
+            //App.vent.on('test:dialog', _.bind(this.testPlayer, this));               
         },
         testPlayer: function () {
              console.log("Testing here testPlayer");
@@ -77,13 +77,27 @@
         showPlayer: function () {
              //var streamModel = new App.Model.Player({src:''});
 
-             this.Player.show(new App.View.PlayerView({
-                 model: App.Model.streamModel
-             }));
+            //  this.Player.show(new App.View.PlayerView({
+            //      model: App.Model.streamModel
+            //  }));
             // this.Content.$el.hide();
             // if (this.MovieDetail.$el !== undefined) {
             //     this.MovieDetail.$el.hide();
             // }
+            var view = new App.View.PlayerView({
+                model: App.Model.streamModel
+            });
+            view.render();
+            
+            var $modalEl = $("#player");
+            $modalEl.html(view.el);
+            $modalEl.dialog({modal: true,height: 600,width:800,buttons : [{text: "Close",icons: {primary: "ui-icon-heart"},
+                                    click: function() {
+                                        $( this ).dialog( "destroy" );
+                                        //$modalEl.html.empty();
+                                        view.destroy();
+                                    }}]
+                                });            
             console.log("Testing here");
         },
 
