@@ -1,0 +1,33 @@
+{
+  "name": "studymanagernw",
+  "version": "1.0.0",
+  "description": "Study Manager ",
+  "main": "app://host/src/app/index.html",
+  "scripts": {
+        "start": "gulp run"
+  },
+  "author": "Subhas",
+  "license": "MIT",
+  "dependencies": {
+    "urijs": "^1.17.0",
+    "adm-zip": "0.4.7",
+    "i18n": "0.5.0",
+    "q": "2.0.3",
+    "request": "^2.55.0",
+    "tar": "^1.0.3",
+    "temp": "^0.8.1",
+    "nedb": "1.1.2",
+    "async": "0.9.0",    
+    "video.js": "^5.10.4",
+    "underscore": "^1.8.3",
+    "xmlbuilder": "^2.6.2"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "nw-builder": "^2.0.2",
+    "nw-gyp": "^0.12.4",
+    "yargs": "^3.31.0"
+    
+  }
+}
