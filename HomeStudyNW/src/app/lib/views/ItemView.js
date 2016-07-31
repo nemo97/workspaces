@@ -18,7 +18,7 @@
       },
       play : function(e){
         //e.preventDefault();
-        console.log(".."+e.target.value);
+        console.log("play button clicked.."+e.target.value);
         if(e.target.value){
             var arr = e.target.value.split("#");
             var src = App.Config.getFilePath(arr[0],arr[1]);

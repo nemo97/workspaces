@@ -26,8 +26,8 @@ _.extend(App, {
                      description: "Test chapter 1",
                      path:'chapter01',
                      items: [
-                         { index:1,description:'Introduction',filename:'Welcome.mp4'},
-                         { index:2,description:'Welcome',filename:'Welcome1.mp4'}                         
+                         { index:1,description:'Introduction',filename:'Welcome.webm'},
+                         { index:2,description:'Welcome',filename:'Welcome1.webm'}                         
                         ]
                     },
                     {
@@ -36,8 +36,8 @@ _.extend(App, {
                         description: "Test chapter 2",
                         path:'chapter02',
                         items: [
-                         { index:1,description:'Greetings',filename:'Greetings.mp4'},
-                         { index:2,description:'Greetings2',filename:'Greetings2.mp4'}                         
+                         { index:1,description:'Greetings',filename:'Greetings.webm'},
+                         { index:2,description:'Greetings2',filename:'Greetings2.webm'}                         
                         ] 
                     },
                     {
@@ -46,7 +46,7 @@ _.extend(App, {
                         description: "Test chapter 3",
                         path:'chapter03',
                         items: [
-                         { index:1,description:'Testing',filename:'MoreUsefulExpressions.mp4'}
+                         { index:1,description:'Testing',filename:'MoreUsefulExpressions.webm'}
                         ]  
                     }
                 ],
@@ -82,9 +82,8 @@ _.extend(App, {
                 }
             });
             
-            
             if(path){                
-                return "./src/app/" + this.basepath +"/"+ path;
+                return "./" + this.basepath +"/"+ path;
             }
             return '';
         }    
