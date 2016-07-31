@@ -65,7 +65,7 @@ _.extend(App, {
                 if(!path){
                     path = chapter;
                 }
-                return `${__dirname}`+"/" + this.basepath +"/"+ path;
+                return "./src/app" + this.basepath +"/"+ path;
             }
             return '';
         },
@@ -84,7 +84,7 @@ _.extend(App, {
             
             
             if(path){                
-                return `${__dirname}`+"/" + this.basepath +"/"+ path;
+                return "./src/app/" + this.basepath +"/"+ path;
             }
             return '';
         }    
