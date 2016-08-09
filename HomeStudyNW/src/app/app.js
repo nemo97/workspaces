@@ -1,8 +1,9 @@
 
- var 
+ var
     // browser window object
-    win = gui = require('nw.gui'),
-
+    gui = require('nw.gui'),
+    // browser window object
+    win = gui.Window.get(),
     // os object
     os = require('os'),
 
@@ -22,7 +23,7 @@
 
     Q = require('q');
 
-    
+
 
 
 // for electron  ~/.{app name}
@@ -98,6 +99,7 @@ i18n.configure({
 // set database
 App.db = Database;
 
+App.settings = Settings;
 //Keeps a list of stacked views
 App.ViewStack = [];
 
@@ -120,6 +122,54 @@ App.addRegions({
     Window: '.main-window-region'
 });
 
+App.addInitializer(function (options) {
+    // this is the 'do things with resolutions and size initializer
+    var zoom = 0;
+
+    var screen = window.screen;
+
+    if (ScreenResolution.QuadHD) {
+        zoom = 2;
+    }
+    /*
+	if (ScreenResolution.UltraHD) {
+		zoom = 4;
+	}
+	*/
+
+    var width = parseInt(localStorage.width ? localStorage.width : Settings.defaultWidth);
+    var height = parseInt(localStorage.height ? localStorage.height : Settings.defaultHeight);
+    var x = parseInt(localStorage.posX ? localStorage.posX : -1);
+    var y = parseInt(localStorage.posY ? localStorage.posY : -1);
+
+    // reset app width when the width is bigger than the available width
+    if (screen.availWidth < width) {
+        win.info('Window too big, resetting width');
+        width = screen.availWidth;
+    }
+
+    // reset app height when the width is bigger than the available height
+    if (screen.availHeight < height) {
+        win.info('Window too big, resetting height');
+        height = screen.availHeight;
+    }
+
+    // reset x when the screen width is smaller than the window x-position + the window width
+    if (x < 0 || (x + width) > screen.width) {
+        win.info('Window out of view, recentering x-pos');
+        x = Math.round((screen.availWidth - width) / 2);
+    }
+
+    // reset y when the screen height is smaller than the window y-position + the window height
+    if (y < 0 || (y + height) > screen.height) {
+        win.info('Window out of view, recentering y-pos');
+        y = Math.round((screen.availHeight - height) / 2);
+    }
+
+    win.zoomLevel = zoom;
+    win.resizeTo(width, height);
+    win.moveTo(x, y);
+});
 var initTemplates = function () {
     // Load in external templates
     var ts = [];
@@ -151,7 +201,22 @@ App.addInitializer(function (options) {
         .then(initApp);
 });
 
+win.on('resize', function (width, height) {
+    if(width){
+        localStorage.width = Math.round(width);
+    }
+    if(height){
+        localStorage.height = Math.round(height);
+    }
+    
+});
 
-
-
-
+win.on('move', function (x, y) {
+    if(x){
+        localStorage.posX = Math.round(x);
+    }
+    if(y){
+        localStorage.posY = Math.round(y);
+    }
+    
+});

@@ -4,6 +4,6 @@
     <section id="main" class="main">        
     </section>    
     <footer id="footer">
-        Language :<nav> <a><%= i18n.__('Bengali','bn') %>  </a> | <a><%= 'English' %>  </a> </nav>                
+        Language :<nav> <a href=#  id="lang_bn"><%= i18n.__('Bengali','bn') %>  </a> | <a href=# id="lang_en"><%= 'English' %>  </a> </nav>                
     </footer>
 </div>

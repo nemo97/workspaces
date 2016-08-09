@@ -60,6 +60,7 @@
             App.vent.on('show:header', _.bind(this.showHeader, this)); 
 
             App.vent.on('stream:local', _.bind(this.showPlayer, this));
+            
             //App.vent.on('player:close', _.bind(this.showViews, this));
             //App.vent.on('player:close', _.bind(this.Player.destroy, this.Player));
             //App.vent.on('test:dialog', _.bind(this.testPlayer, this));               
@@ -96,7 +97,11 @@
                                         $( this ).dialog( "destroy" );
                                         //$modalEl.html.empty();
                                         view.destroy();
-                                    }}]
+                                    }}],
+                                    close: function( event, ui ) {
+                                        $( this ).dialog( "destroy" );
+                                        view.destroy();
+                                    }
                                 });            
             console.log("Testing here");
         },
@@ -130,14 +135,25 @@
           freshstart: '#freshstart',
           workprogress: '#workprogress',
           homebtn: '#homebtn',
-          nextbtn: '#nextbtn'          
+          nextbtn: '#nextbtn',
+          lang_bn: '#lang_bn',     
+          lang_en: '#lang_en'     
         },
         
         events:{
             'click @ui.freshstart' : 'freshStart',
             'click @ui.workprogress' : 'workprogress',
             'click @ui.homebtn' : 'goHome',
-            'click @ui.nextbtn' : 'goNext'            
+            'click @ui.nextbtn' : 'goNext',
+            'click @ui.lang_bn' : function(){ this.changeLang("bn"); },
+            'click @ui.lang_en' : function(){ this.changeLang("en"); }               
+        },
+        changeLang : function(language){
+            console.log("chnageLang "+language);
+            i18n.setLocale(language);
+            this.Header.destroy();
+            App.vent.trigger('close:chapter');
+            App.vent.trigger('show:home');
         },
         goHome : function(){
              this.Header.destroy();
