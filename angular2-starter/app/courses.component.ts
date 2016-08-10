@@ -14,17 +14,25 @@ import { Observable } from 'rxjs/Rx'
               </ul>
 
               <button (click)="clickMe()" > Click Me! </button>
+              <div> 
+                {{courseService.getCourseList() | json}}
+                {{$message | async}}
+                <ul>
+                  <li *ngFor="let c of ($message | async)" > {{c}} </li> 
+                </ul>
+                </div>
              `,
   providers: [CourseService,WEB_STORAGE_PROVIDERS,ConfigureStorage({ prefix: "myPrefix-" })]
 })
 export class CourseComponent {
   title = " Testing attribute ";
+  message$: Observable<string>;
   //cources = ["cources 1","cources 2","cources 3"];
   courses ;
-  constructor(courseService :CourseService,public localStorage: LocalStorage){
+  constructor(public courseService :CourseService,public localStorage: LocalStorage){
     this.courses = courseService.getCourse();
     this.localStorage.setItem("jsonKey", JSON.stringify({a:5,b:3}));
-
+    this.message$ = this.courseService.getCourseList() ;
   }
 
   clickMe(){
