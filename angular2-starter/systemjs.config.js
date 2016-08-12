@@ -9,13 +9,15 @@
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs',
-    'h5webstorage':                       'node_modules/h5webstorage'
+    'h5webstorage':               'node_modules/h5webstorage',
+    'primeng':                    'node_modules/primeng'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'h5webstorage': { main: 'index.js', defaultExtension: 'js' },    
+    'primeng':                    { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
   };
   var ngPackageNames = [
@@ -23,6 +25,7 @@
     'compiler',
     'core',
     'http',
+    'forms',
     'platform-browser',
     'platform-browser-dynamic',
     'router',
@@ -38,7 +41,8 @@
     packages['@angular/'+pkgName] = { main: pkgName + '.umd.js', defaultExtension: 'js' };
   };
   // Most environments should use UMD; some (Karma) need the individual index files
-  var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+  //var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+  var setPackageConfig = packIndex;
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
   var config = {
