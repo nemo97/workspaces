@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {LocalStorage, WEB_STORAGE_PROVIDERS,ConfigureStorage} from "h5webstorage";
 
-import { CourseService } from './courses.service'
+import { CourseService } from './course.service'
 import { Observable } from 'rxjs/Rx'
 import {InputText} from 'primeng/primeng';
 
