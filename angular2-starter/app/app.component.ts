@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<h3>Home!</h3>
+  template: `<h3><a routerLink="/" routerLinkActive="active">Home!</a></h3>
        <!-- Routed views go here -->
         <nav>
-          <a routerLink="/course" routerLinkActive="active">Course</a> | 
-          <a routerLink="/courselist" routerLinkActive="active">Course List</a>
+          <a routerLink="/booklist" routerLinkActive="active">Book</a> | 
+          <a routerLink="/courselist" routerLinkActive="active">Course</a>
         </nav>
         <router-outlet></router-outlet>
     `  

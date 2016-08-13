@@ -3,8 +3,7 @@ import { CourseComponent } from './course.component';
 import { CourseListComponent } from './course-list.component';
 import {PageNotFoundComponent } from '../pagenotfound.component';
 
-const courseRoutes: Routes = [
-   { path: '', redirectTo:'/course',terminal:true}, 
+const courseRoutes: Routes = [    
   { path: 'course', component: CourseComponent },
   {
     path: 'courselist',
@@ -12,8 +11,7 @@ const courseRoutes: Routes = [
     data: {
       title: 'Heroes List'
     }
-  },  
-  { path: '**', component: PageNotFoundComponent }
+  }
 ];
 
 export const courseRoutingProviders: any[] = [

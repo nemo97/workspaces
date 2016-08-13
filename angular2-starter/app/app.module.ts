@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CourseModule } from './course/course.module';
 import { AppComponent } from './app.component';
 import { BookListComponent } from './book-list.component';
 import { appRoutingProviders,routing } from './app.routing'
@@ -17,6 +18,7 @@ import { BookService } from './book.service'
         ,BookService
     ],        
     imports :[
+        CourseModule,
         BrowserModule,
         routing
         ],
