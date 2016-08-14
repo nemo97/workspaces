@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var book_component_1 = require('./book.component');
 var book_list_component_1 = require('./book-list.component');
 var bookmain_component_1 = require('./bookmain.component');
+var childrenbook_component_1 = require('./childrenbook.component');
+var storybook_component_1 = require('./storybook.component');
 var book_routing_1 = require('./book.routing');
 var book_service_1 = require('./book.service');
 var BookModule = (function () {
@@ -23,7 +25,9 @@ var BookModule = (function () {
             declarations: [
                 book_component_1.BookComponent,
                 book_list_component_1.BookListComponent,
-                bookmain_component_1.BookMainComponent
+                bookmain_component_1.BookMainComponent,
+                childrenbook_component_1.ChildrenBookComponent,
+                storybook_component_1.StoryBookComponent
             ],
             providers: [
                 book_routing_1.bookRoutingProviders,
