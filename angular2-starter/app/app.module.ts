@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CourseModule } from './course/course.module';
+import { BookModule } from './book/book.module';
 import { AppComponent } from './app.component';
-import { BookListComponent } from './book-list.component';
+
 import { appRoutingProviders,routing } from './app.routing'
 import { PageNotFoundComponent } from './pagenotfound.component';
-import { BookService } from './book.service'
+
 
 @NgModule({
     declarations : [
-            AppComponent
-            ,BookListComponent            
+            AppComponent                        
             ,PageNotFoundComponent
             ],                
     providers:[
-        appRoutingProviders
-        ,BookService
+        appRoutingProviders        
     ],        
     imports :[
         CourseModule,
+        BookModule,
         BrowserModule,
         routing
         ],

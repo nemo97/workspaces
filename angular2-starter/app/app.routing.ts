@@ -1,10 +1,8 @@
 import { Routes,RouterModule } from '@angular/router';
-import { BookListComponent } from './book-list.component';
 import { PageNotFoundComponent } from './pagenotfound.component';
 
 const appRoutes: Routes = [
-   { path: '', redirectTo:'/booklist',terminal:true}, 
-   { path: 'booklist', component: BookListComponent },  
+   { path: '', redirectTo:'/book-center',terminal:true},
    { path: '**', component: PageNotFoundComponent }
 ];
 
