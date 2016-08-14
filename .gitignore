@@ -1,6 +1,7 @@
 node_modules
 typings
 *.log
+*.img
 
 # Windows image file caches
 Thumbs.db
