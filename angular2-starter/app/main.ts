@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { platformBrowserDynamic,bootstrapWorkerUi }    from '@angular/platform-browser-dynamic';
 import { PlatformRef } from '@angular/core';
 import { AppModule } from './app.module';
@@ -38,3 +39,10 @@ bootstrapWorkerUi("factorial/loader.js")
         });
     });
 });
+=======
+import { bootstrap }    from '@angular/platform-browser-dynamic';
+import { AppComponent } from './app.component';
+import { APP_ROUTER_PROVIDERS } from './app.routes';
+
+bootstrap(AppComponent,[APP_ROUTER_PROVIDERS]);
+>>>>>>> a6e08dd06e1c05190dfa16e4fc711b7e12fe38d8
