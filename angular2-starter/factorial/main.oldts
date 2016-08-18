@@ -1,18 +1,6 @@
-import { platformBrowserDynamic,bootstrapWorkerUi }    from '@angular/platform-browser-dynamic';
-import { PlatformRef } from '@angular/core';
-import { AppModule } from './app.module';
-import {WORKER_SCRIPT,platformWorkerUi} from "@angular/platform-browser/src/worker_render";
+import {PlatformRef} from '@angular/core';
 import {UiArguments, FnArg, PRIMITIVE, ClientMessageBrokerFactory} from '@angular/platform-browser';
-//import {ServiceMessageBrokerFactory} from "@angular/platform-browser";
-//import {WORKER_RENDER_PLATFORM, WORKER_RENDER_APPLICATION, WORKER_SCRIPT, ServiceMessageBrokerFactory} from "@angular/platform-browser";
-
-//platformBrowserDynamic([{provide: WORKER_SCRIPT, useValue: "factorial/loader.js"}]).bootstrapModule(AppModule);
-
-//  bootstrapWorkerUi("factorial/loader.js").then((ref:PlatformRef)=>{
-
-       //ref.bootstrapModule(AppModule);
-//});
-//platformWorkerUi([{provide: WORKER_SCRIPT, useValue: "factorial/loader.js"}]).bootstrapModule(AppModule);
+import {bootstrapWorkerUi} from "@angular/platform-browser-dynamic";
 
 const FACTORIAL_CHANNEL = "FACTORIAL";
 
