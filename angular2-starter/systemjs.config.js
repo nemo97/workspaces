@@ -17,10 +17,10 @@
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-<<<<<<< HEAD
+
     'h5webstorage': { main: 'index.js', defaultExtension: 'js' },    
     'primeng':                    { defaultExtension: 'js' },
-=======
+
     // 'common': { main: 'index.js', defaultExtension: 'js' },
     // 'compiler': { main: 'index.js', defaultExtension: 'js' },
     // 'core': { main: 'index.js', defaultExtension: 'js' },
@@ -28,8 +28,8 @@
     // 'platform-browser': { main: 'index.js', defaultExtension: 'js' },
     // 'platform-browser-dynamic': { main: 'index.js', defaultExtension: 'js' },
     // 'router': { main: 'index.js', defaultExtension: 'js' },
-    // 'router-deprecated': { main: 'index.js', defaultExtension: 'js' },    
->>>>>>> a6e08dd06e1c05190dfa16e4fc711b7e12fe38d8
+    // 'router-deprecated': { main: 'index.js', defaultExtension: 'js' },   
+
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
   };
   var ngPackageNames = [
