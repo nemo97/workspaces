@@ -7,24 +7,10 @@ import {InputText} from 'primeng/primeng';
 
 @Component({
   selector: 'course',
-  template: `<h3>Hello User! </h3>
-              {{title}}
-
-              <ul>
-                <li *ngFor="let c of courses">{{ c }}</li>
-              </ul>
-              <input type="text" pInputText/>
-              <button (click)="clickMe()" > Click Me! </button>
-              <div> 
-                {{courseService.getCourseList() | json}}
-                {{$message | async}}
-                <div>hello</div>  
-                {{obj | json}}
-                <p>test {{ obj[key] }}</p>
-                <ul>
-                  <li *ngFor="let c of ($message | async)" > {{c}} </li> 
-                </ul>
-                </div>
+  template: `<h5>Course! </h5>
+              <div>
+               
+              </div>
              `,
   directives : [InputText],             
   providers: [CourseService,WEB_STORAGE_PROVIDERS,ConfigureStorage({ prefix: "myPrefix-" })]
@@ -32,15 +18,15 @@ import {InputText} from 'primeng/primeng';
 export class CourseComponent {
   title = " Testing attribute ";
   
-  obj : any = {a:3,b:4};
-  key : any ="a";
-  message$: Observable<string>;
+  //obj : any = {a:3,b:4};
+  //key : any ="a";
+  //message$: Observable<string>;
   //cources = ["cources 1","cources 2","cources 3"];
   courses ;
   constructor(public courseService :CourseService,public localStorage: LocalStorage){
     this.courses = courseService.getCourse();
     this.localStorage.setItem("jsonKey", JSON.stringify({a:5,b:3}));
-    this.message$ = this.courseService.getCourseList() ;
+    //this.message$ = this.courseService.getCourseList() ;
   }
 
   clickMe(){

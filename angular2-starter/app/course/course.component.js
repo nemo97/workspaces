@@ -18,11 +18,9 @@ var CourseComponent = (function () {
         this.courseService = courseService;
         this.localStorage = localStorage;
         this.title = " Testing attribute ";
-        this.obj = { a: 3, b: 4 };
-        this.key = "a";
         this.courses = courseService.getCourse();
         this.localStorage.setItem("jsonKey", JSON.stringify({ a: 5, b: 3 }));
-        this.message$ = this.courseService.getCourseList();
+        //this.message$ = this.courseService.getCourseList() ;
     }
     CourseComponent.prototype.clickMe = function () {
         console.log("Clicked Me ..");
@@ -36,7 +34,7 @@ var CourseComponent = (function () {
     CourseComponent = __decorate([
         core_1.Component({
             selector: 'course',
-            template: "<h3>Hello User! </h3>\n              {{title}}\n\n              <ul>\n                <li *ngFor=\"let c of courses\">{{ c }}</li>\n              </ul>\n              <input type=\"text\" pInputText/>\n              <button (click)=\"clickMe()\" > Click Me! </button>\n              <div> \n                {{courseService.getCourseList() | json}}\n                {{$message | async}}\n                <div>hello</div>  \n                {{obj | json}}\n                <p>test {{ obj[key] }}</p>\n                <ul>\n                  <li *ngFor=\"let c of ($message | async)\" > {{c}} </li> \n                </ul>\n                </div>\n             ",
+            template: "<h5>Course! </h5>\n              <div>\n               \n              </div>\n             ",
             directives: [primeng_1.InputText],
             providers: [course_service_1.CourseService, h5webstorage_1.WEB_STORAGE_PROVIDERS, h5webstorage_1.ConfigureStorage({ prefix: "myPrefix-" })]
         }), 
