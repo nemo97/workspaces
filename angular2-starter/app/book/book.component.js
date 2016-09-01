@@ -9,15 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var ng2_redux_1 = require('ng2-redux');
+var Observable_1 = require('rxjs/Observable');
+var counter_actions_1 = require('../actions/counter.actions');
 var BookComponent = (function () {
-    function BookComponent() {
+    function BookComponent(actions) {
+        this.actions = actions;
     }
+    __decorate([
+        ng2_redux_1.select('counter'), 
+        __metadata('design:type', Observable_1.Observable)
+    ], BookComponent.prototype, "counter$", void 0);
     BookComponent = __decorate([
         core_1.Component({
             selector: 'book-details',
-            template: "Book details -WIP\n             "
+            providers: [counter_actions_1.CounterActions],
+            template: "Book details -WIP\n            <p>\n    Clicked: {{ counter$ | async }} times\n    <button (click)=\"actions.increment()\">+</button>\n    <button (click)=\"actions.decrement()\">-</button>\n    <button (click)=\"actions.incrementIfOdd()\">Increment if odd</button>\n    <button (click)=\"actions.incrementAsync(2222)\">Increment async</button>\n    <button (click)=\"actions.randomize()\">Set to random number</button>\n  </p>\n             "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [counter_actions_1.CounterActions])
     ], BookComponent);
     return BookComponent;
 }());

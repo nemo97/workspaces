@@ -7,6 +7,18 @@ import { AppComponent } from './app.component';
 import { appRoutingProviders,routing } from './app.routing'
 import { PageNotFoundComponent } from './pagenotfound.component';
 
+import { NgRedux } from 'ng2-redux';
+import { rootReducer,IAppState,enhancers } from './store/index';
+import {
+  applyMiddleware,
+  Store,
+  combineReducers,
+  compose,
+  createStore
+} from 'redux';
+
+
+
 
 @NgModule({
     declarations : [
@@ -14,6 +26,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
             ,PageNotFoundComponent
             ],                
     providers:[
+        NgRedux,
         appRoutingProviders        
     ],        
     imports :[
@@ -25,5 +38,7 @@ import { PageNotFoundComponent } from './pagenotfound.component';
     bootstrap : [ AppComponent ]
 })
 export class AppModule{
-
+  constructor(private ngRedux: NgRedux<IAppState>) {
+    this.ngRedux.configureStore(rootReducer, {}, enhancers);
+  }
 }
