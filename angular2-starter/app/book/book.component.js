@@ -13,8 +13,10 @@ var ng2_redux_1 = require('ng2-redux');
 var Observable_1 = require('rxjs/Observable');
 var counter_actions_1 = require('../actions/counter.actions');
 var BookComponent = (function () {
-    function BookComponent(actions) {
+    function BookComponent(actions, ngRedux, zone) {
         this.actions = actions;
+        this.ngRedux = ngRedux;
+        this.zone = zone;
     }
     __decorate([
         ng2_redux_1.select('counter'), 
@@ -26,7 +28,7 @@ var BookComponent = (function () {
             providers: [counter_actions_1.CounterActions],
             template: "Book details -WIP\n            <p>\n    Clicked: {{ counter$ | async }} times\n    <button (click)=\"actions.increment()\">+</button>\n    <button (click)=\"actions.decrement()\">-</button>\n    <button (click)=\"actions.incrementIfOdd()\">Increment if odd</button>\n    <button (click)=\"actions.incrementAsync(2222)\">Increment async</button>\n    <button (click)=\"actions.randomize()\">Set to random number</button>\n  </p>\n             "
         }), 
-        __metadata('design:paramtypes', [counter_actions_1.CounterActions])
+        __metadata('design:paramtypes', [counter_actions_1.CounterActions, ng2_redux_1.NgRedux, core_1.NgZone])
     ], BookComponent);
     return BookComponent;
 }());

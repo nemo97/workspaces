@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,NgZone } from '@angular/core';
 import { NgRedux, select } from 'ng2-redux';
 import { Observable } from 'rxjs/Observable';
 import { CounterActions } from '../actions/counter.actions';
+import { rootReducer,IAppState,enhancers } from '../store/index';
 
 @Component({
   selector: 'book-details',
@@ -19,5 +20,10 @@ import { CounterActions } from '../actions/counter.actions';
 })
 export class BookComponent {
     @select('counter') counter$: Observable<number>;
-    constructor(private actions: CounterActions) {}
+    constructor(private actions: CounterActions
+                , private ngRedux: NgRedux<IAppState>
+                , private zone:NgZone) {
+      
+      
+    }
 }

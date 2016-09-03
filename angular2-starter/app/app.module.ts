@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NgZone } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CourseModule } from './course/course.module';
 import { BookModule } from './book/book.module';
@@ -17,7 +17,10 @@ import {
   createStore
 } from 'redux';
 
-
+//let initialState ={};
+export const store: Store<IAppState> = createStore(
+  rootReducer,
+  window.devToolsExtension && window.devToolsExtension());
 
 
 @NgModule({
@@ -38,7 +41,14 @@ import {
     bootstrap : [ AppComponent ]
 })
 export class AppModule{
-  constructor(private ngRedux: NgRedux<IAppState>) {
-    this.ngRedux.configureStore(rootReducer, {}, enhancers);
+//   constructor(private ngRedux: NgRedux<IAppState>) {
+//     this.ngRedux.configureStore(rootReducer, {}, enhancers);
+//   }
+
+constructor(private ngRedux: NgRedux<IAppState>,  private zone:NgZone) {
+    this.ngRedux.provideStore(store);
+    this.ngRedux.subscribe(() => {
+            this.zone.run(() => {}); 
+    });
   }
 }
