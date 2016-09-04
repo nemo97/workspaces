@@ -18,13 +18,12 @@ import {
 } from 'redux';
 
 
-// export const store: Store<IAppState> = createStore(
-//   rootReducer,
-//   window.devToolsExtension && window.devToolsExtension());
+export const store: Store<IAppState> = createStore(
+  rootReducer);
 
-const store : Store<IAppState> = createStore(rootReducer, {}, 
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  );
+// const store : Store<IAppState> = createStore(rootReducer, {}, 
+//     window.devToolsExtension ? window.devToolsExtension() : f => f
+//   );
 
 // seems this is better solution than zone update
 //https://github.com/zalmoxisus/redux-devtools-extension/issues/44
