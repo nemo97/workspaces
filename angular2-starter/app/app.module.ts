@@ -17,11 +17,17 @@ import {
   createStore
 } from 'redux';
 
-//let initialState ={};
-export const store: Store<IAppState> = createStore(
-  rootReducer,
-  window.devToolsExtension && window.devToolsExtension());
 
+// export const store: Store<IAppState> = createStore(
+//   rootReducer,
+//   window.devToolsExtension && window.devToolsExtension());
+
+const store : Store<IAppState> = createStore(rootReducer, {}, 
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  );
+
+// seems this is better solution than zone update
+//https://github.com/zalmoxisus/redux-devtools-extension/issues/44
 
 @NgModule({
     declarations : [
@@ -30,7 +36,7 @@ export const store: Store<IAppState> = createStore(
             ],                
     providers:[
         NgRedux,
-        appRoutingProviders        
+        appRoutingProviders
     ],        
     imports :[
         CourseModule,
