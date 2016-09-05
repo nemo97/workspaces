@@ -7,8 +7,10 @@ import { AppComponent } from './app.component';
 import { appRoutingProviders,routing } from './app.routing'
 import { PageNotFoundComponent } from './pagenotfound.component';
 
-import { NgRedux } from 'ng2-redux';
+import { NgRedux,DevToolsExtension } from 'ng2-redux';
 import { rootReducer,IAppState,enhancers } from './store/index';
+const createLogger = require('redux-logger');
+
 import {
   applyMiddleware,
   Store,
@@ -18,8 +20,8 @@ import {
 } from 'redux';
 
 
-export const store: Store<IAppState> = createStore(
-  rootReducer);
+// export const store: Store<IAppState> = createStore(
+//   rootReducer,devTool.isEnabled() ? devTool.enhancer() : f => f);
 
 // const store : Store<IAppState> = createStore(rootReducer, {}, 
 //     window.devToolsExtension ? window.devToolsExtension() : f => f
@@ -35,6 +37,7 @@ export const store: Store<IAppState> = createStore(
             ],                
     providers:[
         NgRedux,
+        DevToolsExtension,
         appRoutingProviders
     ],        
     imports :[
@@ -46,14 +49,18 @@ export const store: Store<IAppState> = createStore(
     bootstrap : [ AppComponent ]
 })
 export class AppModule{
-//   constructor(private ngRedux: NgRedux<IAppState>) {
-//     this.ngRedux.configureStore(rootReducer, {}, enhancers);
-//   }
-
-constructor(private ngRedux: NgRedux<IAppState>,  private zone:NgZone) {
-    this.ngRedux.provideStore(store);
-    this.ngRedux.subscribe(() => {
-            this.zone.run(() => {}); 
-    });
+  constructor(private ngRedux: NgRedux<IAppState>,
+            private devTool: DevToolsExtension) {
+    this.ngRedux.configureStore(rootReducer, {},
+    [ createLogger() ],
+    [...enhancers,devTool.isEnabled() ? devTool.enhancer() : f => f] 
+    );
   }
+
+// constructor(private ngRedux: NgRedux<IAppState>,  private zone:NgZone) {
+//     this.ngRedux.provideStore(store);
+//     this.ngRedux.subscribe(() => {
+//             this.zone.run(() => {}); 
+//     });
+//   }
 }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-//const persistState = require('redux-localstorage');
+const persistState = require('redux-localstorage');
 import { counterReducer } from './counter.reducer';
 import { IPathDemoData, pathDemoReducer } from './path-demo.reducer';
 import { ISearchState, searchReducer } from './search.reducer';
@@ -17,6 +17,6 @@ export const rootReducer = combineReducers<IAppState>({
 });
 
 export const enhancers = [
-  //persistState('counter', { key: 'ng2-redux/counter' })
+  persistState('counter', { key: 'ng2-redux/counter' })
 ];
 

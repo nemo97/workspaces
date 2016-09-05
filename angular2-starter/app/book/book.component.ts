@@ -10,7 +10,7 @@ import { rootReducer,IAppState,enhancers } from '../store/index';
   template: `Book details -WIP
             <p>
     Clicked: {{ counter$ | async }} times
-    <button (click)="actions.increment()">+</button>
+    <button (click)="actions.increment()">+ (Add)</button>
     <button (click)="actions.decrement()">-</button>
     <button (click)="actions.incrementIfOdd()">Increment if odd</button>
     <button (click)="actions.incrementAsync(2222)">Increment async</button>

@@ -4,7 +4,7 @@
   "scripts": {    
     "postinstall": "typings install",
     "build": "webpack",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server -d --inline --progress --no-info --config webpack.config.js",
     "typings": "typings"
   },
   "license": "ISC",
