@@ -1,33 +1,43 @@
 var Rx = require("rxjs");
 
-var source = Rx.Observable.of(10);
+var source = Rx.Observable.from([1,2,4])
+var source1 = Rx.Observable.from([5,6,7])
 
-source.expand(function(x){
-    return Rx.Observable.of(x+5);
-})
-.take(5)
+source.concat(source1)
 .subscribe(
     x => console.log("Successful "+x),
     err => new Error(err),
     () => console.log("Completed ")
 );
 
+// var source = Rx.Observable.of(10);
 
-var subject$$ = new Rx.BehaviorSubject("2");
-var i=0;
-subject$$.subscribe(
-    x => {
-        console.log(x);
-        if(i < 10){
-            i++;
-            subject$$.next(x+2);
-        }else{
-            subject$$.complete();
-        }
-    },
-    err => new Error(err),
-    () => console.log("Completed ")
-);
+// source.expand(function(x){
+//     return Rx.Observable.of(x+5);
+// })
+// .take(5)
+// .subscribe(
+//     x => console.log("Successful "+x),
+//     err => new Error(err),
+//     () => console.log("Completed ")
+// );
+
+
+// var subject$$ = new Rx.BehaviorSubject("2");
+// var i=0;
+// subject$$.subscribe(
+//     x => {
+//         console.log(x);
+//         if(i < 10){
+//             i++;
+//             subject$$.next(x+2);
+//         }else{
+//             subject$$.complete();
+//         }
+//     },
+//     err => new Error(err),
+//     () => console.log("Completed ")
+// );
 
 // setInterval(function(){
 //     if(i < 10){
