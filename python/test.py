@@ -6,7 +6,7 @@ f = file("test.txt",mode='r')
 # for line in lines:
 #     print "from loop =>"+line
 
-lineTest = filter(lambda x:x.)
+#lineTest = filter(lambda x:x.)
 
 
 
