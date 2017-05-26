@@ -1,0 +1,28 @@
+{
+  "name": "backbone-qstart",
+  "version": "1.0.0",
+  "description": "backbone quickstart",
+  "main": "index.html",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"    
+  },
+  "dependencies": {    
+    "systemjs": "0.19.27",
+    "core-js": "^2.4.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "5.0.0-beta.6",
+    "zone.js": "^0.6.12",
+    "angular2-in-memory-web-api": "0.0.11",
+    "bootstrap": "^3.3.6"
+  },
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0",
+    "typescript": "^1.8.10",
+    "typings":"^1.0.4"
+  }
+  
+}
