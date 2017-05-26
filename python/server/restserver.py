@@ -2,6 +2,9 @@ from flask import Flask,jsonify,request
 app = Flask(__name__)
 
 task =['slepp','code','read']
+test = {}
+test['a'] ='test_a'
+test['b'] ='test_b' 
 
 @app.route('/',methods=['GET'])
 def main_context():
@@ -9,7 +12,7 @@ def main_context():
 
 @app.route('/tasks',methods=['GET'])
 def get_all_tasks():
-   return jsonify(task);   
+   return jsonify(test);   
 
 
 if __name__== '__main__':
