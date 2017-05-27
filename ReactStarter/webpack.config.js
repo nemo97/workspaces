@@ -23,7 +23,19 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "client.min.js"
   },
-  plugins: debug ? [] : [
+  // externals: {
+  //   'Config': JSON.stringify(dubug ? require('./src/config.dev.json') : require('./src/config.prod.json') )
+  // },
+  externals: {
+    'Config': JSON.stringify(process.env.ENV === 'production' ? {
+      serverUrl: "https://myserver.com"
+    } : {
+      serverUrl: "http://rest.learncode.academy"
+    })
+  },
+  plugins: debug ? [
+
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

@@ -1,8 +1,9 @@
 import axios from "axios";
+var config = require('Config')
 
 export function fetchTweets() {
   return function(dispatch) {
-    axios.get("http://rest.learncode.academy/api/test123/tweets")
+    axios.get(config.serverUrl+"/api/test123/tweets")
       .then((response) => {
         dispatch({type: "FETCH_TWEETS_FULFILLED", payload: response.data})
       })
