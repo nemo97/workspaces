@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 
+require("../../style/app.scss");
 
 export default class MainLayout extends React.Component {
     constructor(){
@@ -12,7 +13,7 @@ export default class MainLayout extends React.Component {
         return (
             <div>
                <Header/>
-                <div>
+                <div className="test">
                     {this.props.children}
                 </div>    
                <Footer/> 
