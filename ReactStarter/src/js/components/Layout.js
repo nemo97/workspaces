@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 
 import { fetchUser } from "../actions/userActions"
 import { fetchTweets } from "../actions/tweetsActions"
+import { Menu } from './Menu'
+
 
 @connect((store) => {
   return {
@@ -45,13 +47,13 @@ export default class Layout extends React.Component {
     let listItems = numbers.map((number) =>
       <li key={number}>{number}</li>
     );
-    return <div>
+    return (<div>      
       <h1>{this.props.user.name}</h1>
       <h1>{this.props.tweets.length}</h1>
       <ul>
         {listItems}
         {mappedTweets}
       </ul>  
-    </div>
+    </div>)
   }
 }
