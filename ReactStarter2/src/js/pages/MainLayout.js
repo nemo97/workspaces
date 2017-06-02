@@ -4,16 +4,13 @@ import Footer from "../components/Footer"
 
 require("../../style/app.scss");
 
-export default class MainLayout extends React.Component {
-    constructor(){
-        super();
-        this.state = {};
-    }
+export default class MainLayout extends React.Component             {
+    
     render(){
         return (
             <div>
                <Header/>
-                <div className="test">
+                <div className="main_content">
                     {this.props.children}
                 </div>    
                <Footer/> 
