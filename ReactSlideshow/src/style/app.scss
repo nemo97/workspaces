@@ -1,0 +1,67 @@
+$font-stack: Helvitica, sans-serif;
+$primary-color: #000;
+$d-overflow: auto;
+$menu-bar-bgcolor : #ddd;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+    font-family:100% $font-stack;
+    color: $primary-color;
+    width: 800px;
+    height: 500px;
+    margin: 10px;
+    border: 1px solid green;    
+}
+a {
+ color: white;
+ text-decoration-style:solid; 
+}
+div {
+    overflow: $d-overflow;
+}
+
+.menu-parent{    
+    display: flex;    
+    justify-content: flex-end;
+    height: 50px;
+    width: 100%;
+    border: 1px solid red;
+    padding: 0;
+    margin: 0;          
+    background-color: $menu-bar-bgcolor;   
+}
+.menu {
+    background-color: blue;    
+    height: 80%;
+    width: 70px;
+    margin: 5px;
+    
+    @include border-radius(5px); 
+}
+.main_content {   
+   display: flex;     
+}
+.parent{    
+    display: flex;
+    flex-direction: column;    
+    width: 100%;
+    height: 500px;    
+}   
+
+.item {
+    border: 1px solid red;
+    width: 95%;
+    margin: 10px;    
+    justify-content: space-around;
+    @include border-radius(10px);    
+}
+
+.item:first-child{
+    background-color: navajowhite;
+}
