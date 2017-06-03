@@ -10,8 +10,16 @@ export default class Welcome extends React.Component {
     }
     render(){
         return (
-            <div>
-               Welcome ! 
+            <div className="parent">
+                 <div className="item"> start test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi 
+                     test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi test hello hi end</div>
+                 <div className="item">2</div>
+                 <div className="item">3</div>
+                 <div className="item">4</div>
+                 <div className="item">5</div>
+                 <div className="item">6</div>
+                 <div className="item">7</div>
+
             </div>
         )
     }

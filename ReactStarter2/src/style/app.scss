@@ -1,10 +1,48 @@
+$font-stack: Helvitica, sans-serif;
+$primary-color: #333;
+$d-overflow: auto;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+    font-family:100% $font-stack;
+    color: $primary-color;
+    
+}
+div {
+    overflow: $d-overflow;
+}
 .main_content {
-   height : 100vh;
-   background-color : #eef;     
+   //height : 80vh;
+   background-color : #eef;
+   display: flex;     
 }
 
 .hello-form {
     color: blue;
  }
 
+
+.parent{
+    background-color: #ffd;
+    flex-wrap: wrap;
+    display: flex;    
+    align-items: flex-start;
+    width: 100%;    
+}
+
+.item {
+    border: 1px solid red;
+    width: 33%;
+    height: 100px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    justify-content: space-around;
+    @include border-radius(10px);    
+}
 
