@@ -34,7 +34,7 @@ export default class MainLayout extends React.Component             {
         if(pageNumber > this.pages.length){
             this.pageNumber =0;
         }else{
-            this.pageNumber = pageNumber;
+            this.pageNumber = pageNumber ;
         }
         
         this.pages.forEach(item => {
