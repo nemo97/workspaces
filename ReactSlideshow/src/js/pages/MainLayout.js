@@ -95,9 +95,16 @@ export default class MainLayout extends React.Component             {
         [
             {
                 p:1,
-                data:"<div class='item'>Index Page Title</div> \
-                      <div class='item'>Main content</div> \
-                "
+                data:`
+                    <div class='item'>Hello World</div> 
+                    <div class='item'>
+                        Test <br/>                         
+                        ReactDOM.render(
+                            'Hello, world!',
+                        document.getElementById('root')
+                        );
+                    </div> 
+                `
             },
             {
                 p:2,

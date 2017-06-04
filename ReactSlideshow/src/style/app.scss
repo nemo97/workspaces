@@ -15,8 +15,8 @@ body {
     color: $primary-color;
     width: 800px;
     height: 500px;
-    margin: 10px;
-    border: 1px solid green;    
+    margin: 0px;
+    padding: 0px;
 }
 a {
  color: white;
@@ -30,7 +30,6 @@ div {
     display: flex;    
     justify-content: flex-end;
     height: 50px;
-    width: 100%;
     border: 1px solid red;
     padding: 0;
     margin: 0;          
