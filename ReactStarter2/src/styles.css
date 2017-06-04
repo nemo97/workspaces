@@ -1,0 +1,37 @@
+@media (min-width: 600px) and (max-width: 800px) {
+  html { background: gray; }
+  #main{    
+    height: 700px;
+  }
+}
+
+body{
+  background-color:#dde
+}
+.parent {
+   display: flex;
+   flex-wrap: wrap;     
+   justify-content: space-between;   
+}
+
+.item { 
+  background-color: #eef;
+  border: 1px solid green;
+  margin: 0;
+  padding: 0;
+}
+#top{
+  width: 100%;
+  height: 30px;
+}
+#bottom{
+  width: 100%;
+  height: 30px;
+}
+#left{
+  width: 9%;
+}
+#main{
+  width: 90%;   
+  height: 600px;
+}
