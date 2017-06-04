@@ -12,9 +12,7 @@ export default class MainLayout extends React.Component             {
 
     componentWillUnMount() {
         document.removeEventListener('keydown', this.keypressHandler.bind(this));
-    }
-
-    
+    }    
 
     render(){
         return (
