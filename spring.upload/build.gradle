@@ -1,0 +1,86 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+plugins {
+    id 'net.researchgate.release' version '2.4.0'
+}
+
+apply plugin: "java"
+apply plugin: 'org.springframework.boot'
+apply plugin: 'net.researchgate.release'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  maven { url 'http://repo.springsource.org/libs-snapshot' }
+  maven { url 'https://repo.spring.io/plugins-release' }
+  maven { url "https://repository.jboss.org/nexus/content/repositories/releases" }
+  maven { url "http://10.8.7.59:8081/nexus/content/groups/public" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('org.springframework.boot:spring-boot-starter-jdbc')
+    compile group: 'javax.mail', name: 'mail', version: '1.4.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('junit:junit')
+}
+/*
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "http://10.8.7.59:8081/nexus/content/repositories/gates/") {
+                authentication(userName: "admin", password: "admin123")
+            }
+        }
+    }
+}
+*/
+
+test.onlyIf { Boolean.getBoolean('run.tests') }
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+release {
+    tagTemplate = 'Onbase-Common-${version}'
+}
+afterReleaseBuild.dependsOn publishToMavenLocal
+
+publishing {
+    repositories {
+        maven {
+            url "http://10.8.7.59:8081/nexus/content/repositories/gates${project.version.endsWith('-SNAPSHOT') ? '-snapshot' : '' }"
+            credentials {
+                username = "admin"
+                password = "admin123"
+            }
+        }
+    }
+}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+
+            artifact sourceJar {
+                classifier "sources"
+            }
+        }
+    }
+}
