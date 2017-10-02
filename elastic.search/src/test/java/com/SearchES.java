@@ -37,9 +37,12 @@ public class SearchES {
         HttpEntity entity = new NStringEntity(
                 "{ \"query\": { \"match_all\": {}}}",
                 ContentType.APPLICATION_JSON);
+
         // alternative: performRequestAsync
+
         Response response = restClient.performRequest("POST",
                 "/_search", new HashMap<>(), entity);
+
         String json = EntityUtils.toString(response.getEntity());
 
         System.out.println("...json.."+json);
