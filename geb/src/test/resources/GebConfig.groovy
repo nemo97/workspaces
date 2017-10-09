@@ -17,19 +17,19 @@ environments {
 
     // run via “./gradlew chromeTest”
     // See: http://code.google.com/p/selenium/wiki/ChromeDriver
-    chrome {
-        driver = { new ChromeDriver() }
-    }
+//    chrome {
+//        driver = { new ChromeDriver() }
+//    }
 
     // run via “./gradlew chromeHeadlessTest”
     // See: http://code.google.com/p/selenium/wiki/ChromeDriver
-    chromeHeadless {
-        driver = {
-            ChromeOptions o = new ChromeOptions()
-            o.addArguments('headless')
-            new ChromeDriver(o)
-        }
-    }
+//    chromeHeadless {
+//        driver = {
+//            ChromeOptions o = new ChromeOptions()
+//            o.addArguments('headless')
+//            new ChromeDriver(o)
+//        }
+//    }
 
     // run via “./gradlew firefoxTest”
     // See: http://code.google.com/p/selenium/wiki/FirefoxDriver
