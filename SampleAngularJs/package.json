@@ -1,0 +1,17 @@
+{
+  "name": "angularjs",
+  "version": "0.0.1",
+  "description": "sample angularjs 1.x",
+  "main": "webpack.config.js",
+  "dependencies": {    
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "./node_modules/.bin/webpack-dev-server --content-base src --inline --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
