@@ -23,10 +23,10 @@
       <ul>
         <li ng-repeat="phone in phones">
           <span>{{phone.name}}</span>
-          <p>{{phone.snippet}}</p>
+          <p><a ng- jclick="clickMe()">{{phone.snippet}}</a></p>
         </li>
       </ul>
-      <div ui-grid="gridOptions" ui-grid-selection class="myGrid"></div>
+      <!--div ui-grid="gridOptions" ui-grid-selection class="myGrid"></div-->
    </div>
    
     <script src="client.min.js"></script>

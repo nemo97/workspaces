@@ -16,6 +16,12 @@ phonecatApp.controller('PhoneListController', function PhoneListController($scop
     }
   ];
 
+  $scope.clickMe = function (){
+    //console.log("clicked me")
+
+    
+  }
+
   $scope.gridOptions = {
     showGridFooter: true,
     showColumnFooter: false,
@@ -35,6 +41,7 @@ phonecatApp.controller('PhoneListController', function PhoneListController($scop
           });
     }
 };
+
 
 $scope.gridOptions.multiSelect = false;
 

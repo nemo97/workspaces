@@ -1,0 +1,25 @@
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "war"
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {    
+    testCompile('junit:junit:4.12')
+}
+
+
+test.onlyIf { Boolean.getBoolean('run.tests') }
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+}
+
+
+
+
