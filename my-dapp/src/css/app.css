@@ -1,0 +1,23 @@
+body {
+    font-size: 75%;
+    color: #222;
+    background: #f3f3f3;
+    font-family: "Helvetica Neue",Arial,Helvetica,sans-serif;
+}
+html {
+    font-size: 14px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.main-content{
+    min-height:400px
+}
+
+.footer {
+  position: relative;
+  right: 0;
+  height: 30px;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}

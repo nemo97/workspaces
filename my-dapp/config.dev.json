@@ -1,0 +1,4 @@
+{
+    "kofaxHost" :"http://localhost:9090/kofax2onbase",
+    "batchHost" :"http://localhost:8082/OnbaseBatch"
+}
