@@ -30,6 +30,7 @@ const peopleContractABI  = [ { constant: true,
                           payable: false,
                           stateMutability: 'nonpayable',
                           type: 'constructor' } ]
+
 const PeopleContract = ethClient.eth.contract(peopleContractABI);
 const peopleContractInstance = PeopleContract.at("0xd234bf3fbb6622e810e5cca0b048cf29e9187a1b");
 
