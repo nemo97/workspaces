@@ -21,8 +21,9 @@ contract PersonContract {
         personList.push(newPerson);
 
     }
+
     
-    function addPerson(bytes32 _firstName,bytes32 _lastName,uint _age) returns (bool _success) {
+    function addPerson(bytes32 _firstName,bytes32 _lastName,uint _age) public returns (bool _success) {
         
         Person memory newPerson;
 
@@ -35,7 +36,7 @@ contract PersonContract {
         return true;
     }
 
-    function getPersonList() constant returns(bytes32[],bytes32[],uint[]){
+    function getPersonListALL() public constant returns (bytes32[],bytes32[],uint[]) {
 
         uint length = personList.length;
         bytes32[] memory rFirstName = new bytes32[](length);

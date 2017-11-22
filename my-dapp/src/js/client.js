@@ -2,7 +2,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import HomeLayout from './pages/HomeLayout'
-
+import Web3 from "web3"
 
 const app = document.getElementById('app')
 
